@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.HomeActivity">
+
+    <item
+        android:id="@+id/menu_user_list"
+        android:title="@string/user_list" />
+    <item
+        android:id="@+id/menu_user_registration"
+        android:title="@string/user_registration" />
+    <item
+        android:id="@+id/menu_current_user"
+        android:title="@string/current_user" />
+    <item
+        android:id="@+id/menu_logout"
+        android:title="@string/logout" />
+</menu>
