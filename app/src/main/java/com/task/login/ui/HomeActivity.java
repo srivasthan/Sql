@@ -4,19 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.task.login.adapter.PagerAdapter;
 import com.task.login.R;
+import com.task.login.database.DatabaseHelper;
 import com.task.login.database.SessionManager;
 
 public class HomeActivity extends AppCompatActivity {
     private SessionManager sessionManager;
     private ViewPager viewPager;
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,10 @@ public class HomeActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         viewPager = findViewById(R.id.pager);
+        TextView userTittle = findViewById(R.id.user_title);
+
+        String getName = getIntent().getStringExtra("name");
+        userTittle.setText(getName);
 
         PagerAdapter viewPagerAdapter = new PagerAdapter(
                 getSupportFragmentManager());

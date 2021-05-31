@@ -2,7 +2,9 @@ package com.task.login.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -29,8 +31,10 @@ public class LoginActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         if (sessionManager.isLoggedIn()) {
+            SharedPreferences sharedPreferences = getSharedPreferences("currentUser", Context.MODE_PRIVATE);
+            String getName = sharedPreferences.getString("name", "");
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-            intent.putExtra("name", "Welcome Again");
+            intent.putExtra("name", getName);
             startActivity(intent);
             finish();
         }

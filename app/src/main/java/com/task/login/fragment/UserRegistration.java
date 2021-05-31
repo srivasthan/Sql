@@ -74,7 +74,7 @@ public class UserRegistration extends Fragment {
                     userName.setError("Password and Confirm Password doesn't Match");
                     userConfirmPassword.setError("Password and Confirm Password doesn't Match");
                 } else {
-                    if (!databaseHelper.checkUser(userName.getText().toString().trim(), userPassword.getText().toString().trim())) {
+                    if (databaseHelper.checkUser(userName.getText().toString().trim(), userPassword.getText().toString().trim())) {
                         sessionManager.setLogin(true);
                         Toast.makeText(view.getContext(), "User Already Exists", Toast.LENGTH_SHORT).show();
                         emptyFields();
